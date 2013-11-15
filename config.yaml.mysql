@@ -1,0 +1,32 @@
+template: template.xml
+system_name: "RO69 サイト管理システム"
+creator: "小宮 健"
+database:
+  driver:   mysql
+  hostname: 192.168.13.24
+  database: ro69_tkomiya
+  username: ro69
+table_descriptions:
+  dummy: "テーブル説明を書く (テーブルコメントが使えない場合)"
+ignore_tables:
+  - dummy
+ignore_key_columns:
+  - re:_by$
+  - re:published_status_id$
+table_groups:
+  - tables: - re:^jack_
+            - genders
+            - approval_statuses
+  - type: hidden
+    tables: - magazine_entries
+            - book_entries
+            - book_classes
+  - type: hidden
+    tables: - artist_variants
+            - artists_text_entries
+  - type: hidden
+    tables: - fes_news_entries
+            - quick_report_entries
+  - type: hidden
+    tables: - text_images
+            - tags_text_entries
